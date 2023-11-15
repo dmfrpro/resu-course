@@ -22,27 +22,32 @@
 # Task 4
 
 Сначала мне удалось понять, что в итоге передо мной python, посмотрев строчки:
-![[Pasted image 20231115235138.png]]
+![[assets/task4_main.png]]
 
 Погуглив, мне удалось понять, что питоновские бинари надо распаковывать, при этом у линукса в бинаре торчит много чего сжатого через zlib:
-![[Pasted image 20231115235446.png]]
+![[assets/task4_zlib.png]]
 
 Погуглив, я нашел `pyinstxtractor.py` [скрипт](https://github.com/extremecoders-re/pyinstxtractor/blob/master/pyinstxtractor.py), он распаковал бинарь следующим образом:
-![[Pasted image 20231115235548.png]]
+![[assets/task4_extract.png]]
 
 Внутренности следующие:
-![[Pasted image 20231115235620.png]]
+![[assets/task4_extdir.png]]
 
 Первым делом посмотрим `task_4.pyc` и вот ответ:
-![[Pasted image 20231115235726.png]]
+![[assets/task4.png]]
 
 Программа завершилась без ошибок по Ctrl+C:
-![[Pasted image 20231115235838.png]]
+![[assets/task4_exit.png]]
+
+# Task 7
+
+В секции `modinfo` лежит флаг:
+![[assets/task7.png]]
 
 # Task 8
 
 Я обрадовался, быстро узнав, что передо мной модуль для ядра linux, в котором вызывается некая функция `intro_read()`, вызывающая в себе уже известную всем `copy_to_user()`. Мне удалось сначала довести функцию до такого вида:
-![[Pasted image 20231116012946.png]]
+![[assets/task8_code.png]]
 
 Перед нами две строки длиной 39 (с учетом null character), вторая состоит из "сырых" байтиков, предлагаю написать python скрипт для расшифрования. Во-первых, проверим, что строки действительно совпадают по длине через assert, а затем перепишем код уже на python:
-![[Pasted image 20231116014014.png]]
+![[assets/task8.png]]
